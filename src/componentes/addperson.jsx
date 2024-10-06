@@ -27,12 +27,12 @@ function AddNewPerson() {
   //   ageRef.current.value = new Date().getFullYear() - datearr[0];
   // }
   function calculateAge(e) {
-    const datearr = e.target.value.split("-");
-    const currentYear = new Date().getFullYear();
-    const birthYear = parseInt(datearr[0], 10);
-    const age = currentYear - birthYear;
-    ageRef.current.value = age;
-  }
+  const datearr = e.target.value.split("-");
+  const currentYear = new Date().getFullYear();
+  const birthYear = parseInt(datearr[0], 10);
+  const age = currentYear - birthYear;
+  ageRef.current.value = age;
+}
 
   function saveData(e) {
     e.preventDefault();
@@ -55,29 +55,19 @@ function AddNewPerson() {
     }
   }
 
-  // function handleDelete(aadhar) {
-  //   const allData = JSON.parse(localStorage.getItem("user"));
-  //   const searchedResult = allData.filter(
-  //     (item) => item.Aadhar_Number !== aadhar
-  //   );
-  //   localStorage.setItem("user", JSON.stringify(searchedResult));
-  //   setUserData(searchedResult);
-  // }
   function handleDelete(aadhar) {
     const allData = JSON.parse(localStorage.getItem("user"));
-    console.log("Before Deletion:", allData);
     const searchedResult = allData.filter(
       (item) => item.Aadhar_Number !== aadhar
     );
-    console.log("After Deletion:", searchedResult);
     localStorage.setItem("user", JSON.stringify(searchedResult));
     setUserData(searchedResult);
   }
-
+ 
   return (
     <div className={styles.AddNewPerson}>
       <div>
-        <h4 className={styles.pagetitle}>AddNewPerson </h4>
+        <h4 className={styles.pagetitle}></h4>
       </div>
 
       <table frame="box" rules="all">
@@ -116,6 +106,7 @@ function AddNewPerson() {
                 </tr>
               );
             })
+            
           )}
         </tbody>
       </table>
@@ -168,11 +159,7 @@ function AddNewPerson() {
                     defaultValue={item.Age}
                     disabled={true}
                   />
-                  <input
-                    type="submit"
-                    className={styles.rowbtns}
-                    value="Save"
-                  />
+                  <input type="submit" className={styles.rowbtns} value="Save" />
                 </form>
               </div>
             );
