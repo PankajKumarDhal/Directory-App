@@ -38,7 +38,7 @@ This project provides a React-based interface with two main tabs:
 
 3. Start the development server:
    ```bash
-   npm start
+   npm run dev
    ```
 
 4. Open the app in your browser:
